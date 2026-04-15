@@ -260,6 +260,7 @@
 
   /* Form */
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .form-label { font-size:12px; color:var(--text2); font-weight:600; margin-bottom:4px; display:block; }
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group label { font-size: 12px; color: var(--text3); font-weight: 500; }
   .form-group input, .form-group select, .form-group textarea { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r); padding: 8px 12px; color: var(--text); font-size: 13px; font-family: var(--font); outline: none; transition: border 0.15s; }
@@ -1908,12 +1909,12 @@ function renderDashboard() {
           <div style="background:var(--bg3);border-radius:var(--r);padding:14px;margin-bottom:14px">
             <div style="font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Add Dispatcher</div>
             <div class="form-row">
-              <div class="form-group"><label>Full Name</label><input type="text" id="tls-add-name" class="edit-field" placeholder="Jane Smith"></div>
-              <div class="form-group"><label>Username</label><input type="text" id="tls-add-user" class="edit-field" placeholder="jsmith" autocomplete="off"></div>
+              <div class="form-group"><label for="tls-add-name">Full Name</label><input type="text" id="tls-add-name" class="edit-field" placeholder="Jane Smith"></div>
+              <div class="form-group"><label for="tls-add-user">Username</label><input type="text" id="tls-add-user" class="edit-field" placeholder="jsmith" autocomplete="off"></div>
             </div>
             <div class="form-row">
-              <div class="form-group"><label>Password</label><input type="password" id="tls-add-pass" class="edit-field" placeholder="Min 6 characters" autocomplete="new-password"></div>
-              <div class="form-group"><label>Role / Title</label><input type="text" id="tls-add-role" class="edit-field" placeholder="Dispatch Manager"></div>
+              <div class="form-group"><label for="tls-add-pass">Password</label><input type="password" id="tls-add-pass" class="edit-field" placeholder="Min 6 characters" autocomplete="new-password"></div>
+              <div class="form-group"><label for="tls-add-role">Role / Title</label><input type="text" id="tls-add-role" class="edit-field" placeholder="Dispatch Manager"></div>
             </div>
             <div id="tls-add-error" style="color:var(--red);font-size:12px;margin-bottom:8px;display:none"></div>
             <button class="topbar-btn btn-primary" onclick="tlsAddDispatcher()">+ Add Dispatcher</button>
@@ -2194,56 +2195,56 @@ function renderDashboard() {
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin-bottom:8px">Unit Information</div>
     <div class="form-row">
-      <div class="form-group"><label>Unit Number *</label><input type="text" id="at-unit" placeholder="e.g. T-142"></div>
-      <div class="form-group"><label>VIN</label><input type="text" id="at-vin" placeholder="17-character VIN"></div>
+      <div class="form-group"><label for="at-unit">Unit Number *</label><input type="text" id="at-unit" placeholder="e.g. T-142"></div>
+      <div class="form-group"><label for="at-vin">VIN</label><input type="text" id="at-vin" placeholder="17-character VIN"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Make</label><input type="text" id="at-make" placeholder="Freightliner, Kenworth, Peterbilt..."></div>
-      <div class="form-group"><label>Model</label><input type="text" id="at-model" placeholder="Cascadia, T680, 579..."></div>
+      <div class="form-group"><label for="at-make">Make</label><input type="text" id="at-make" placeholder="Freightliner, Kenworth, Peterbilt..."></div>
+      <div class="form-group"><label for="at-model">Model</label><input type="text" id="at-model" placeholder="Cascadia, T680, 579..."></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Year</label><input type="number" id="at-year" placeholder="2024"></div>
-      <div class="form-group"><label>Truck Type</label>
+      <div class="form-group"><label for="at-year">Year</label><input type="number" id="at-year" placeholder="2024"></div>
+      <div class="form-group"><label for="at-plate">Truck Type</label>
         <select id="at-type"><option>Dry Van</option><option>Reefer</option><option>Flatbed</option><option>Step Deck</option><option>Tanker</option><option>Lowboy</option><option>Straight Truck</option></select>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>License Plate</label><input type="text" id="at-plate" placeholder="ABC-1234"></div>
-      <div class="form-group"><label>Plate State</label><input type="text" id="at-plate-state" placeholder="GA" maxlength="2"></div>
+      <div class="form-group"><label>License Plate <input type="text" id="at-plate" placeholder="ABC-1234"></label></div>
+      <div class="form-group"><label for="at-plate-state">Plate State</label><input type="text" id="at-plate-state" placeholder="GA" maxlength="2"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Mileage & Status</div>
     <div class="form-row">
-      <div class="form-group"><label>Current Odometer (mi)</label><input type="number" id="at-odometer" placeholder="0"></div>
-      <div class="form-group"><label>Status</label>
-        <select id="at-status"><option value="active">Active</option><option value="idle">Idle</option><option value="in_shop">In Shop</option><option value="inactive">Inactive</option></select>
+      <div class="form-group"><label for="at-odometer">Current Odometer (mi)</label><input type="number" id="at-odometer" placeholder="0"></div>
+      <div class="form-group"><label for="at-pm-due">Status</label>
+        <select id="at-status"><option value="active">Active</option><option value="idle">Idle</option><option value="in_shop">In Shop</option><option value="inactive">Inactive</option></select></label>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>PM Due Date</label><input type="date" id="at-pm-due"></div>
-      <div class="form-group"><label>Next PM Mileage</label><input type="number" id="at-pm-miles" placeholder="e.g. 200000"></div>
+      <div class="form-group"><label>PM Due Date <input type="date" id="at-pm-due"></label></div>
+      <div class="form-group"><label for="at-pm-miles">Next PM Mileage</label><input type="number" id="at-pm-miles" placeholder="e.g. 200000"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Insurance & Compliance</div>
     <div class="form-row">
-      <div class="form-group"><label>Insurance Policy #</label><input type="text" id="at-insurance" placeholder="Policy number"></div>
-      <div class="form-group"><label>Insurance Expiry</label><input type="date" id="at-ins-expiry"></div>
+      <div class="form-group"><label for="at-insurance">Insurance Policy #</label><input type="text" id="at-insurance" placeholder="Policy number"></div>
+      <div class="form-group"><label for="at-ins-expiry">Insurance Expiry</label><input type="date" id="at-ins-expiry"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Annual Inspection Due</label><input type="date" id="at-inspection-due"></div>
-      <div class="form-group"><label>IFTA Decal #</label><input type="text" id="at-ifta" placeholder="IFTA sticker number"></div>
+      <div class="form-group"><label for="at-inspection-due">Annual Inspection Due</label><input type="date" id="at-inspection-due"></div>
+      <div class="form-group"><label for="at-ifta">IFTA Decal #</label><input type="text" id="at-ifta" placeholder="IFTA sticker number"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Purchase & GPS</div>
     <div class="form-row">
-      <div class="form-group"><label>Purchase Date</label><input type="date" id="at-purchase-date"></div>
-      <div class="form-group"><label>Purchase Price ($)</label><input type="number" id="at-purchase-price" placeholder="0.00"></div>
+      <div class="form-group"><label for="at-purchase-date">Purchase Date</label><input type="date" id="at-purchase-date"></div>
+      <div class="form-group"><label for="at-purchase-price">Purchase Price ($)</label><input type="number" id="at-purchase-price" placeholder="0.00"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>GPS Unit ID</label><input type="text" id="at-gps" placeholder="Device serial / ELD ID"></div>
-      <div class="form-group"><label>Home Terminal</label><input type="text" id="at-terminal" placeholder="e.g. Atlanta, GA"></div>
+      <div class="form-group"><label for="at-gps">GPS Unit ID</label><input type="text" id="at-gps" placeholder="Device serial / ELD ID"></div>
+      <div class="form-group"><label for="at-terminal">Home Terminal</label><input type="text" id="at-terminal" placeholder="e.g. Atlanta, GA"></div>
     </div>
-    <div class="form-group" style="margin-bottom:14px"><label>Notes</label><textarea id="at-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical" placeholder="Any additional information..."></textarea></div>
+    <div class="form-group" style="margin-bottom:14px"><label for="at-notes">Notes</label><textarea id="at-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical" placeholder="Any additional information..."></textarea></label></div>
 
     <div id="at-error" style="color:var(--red);font-size:12px;padding:4px 0;display:none"></div>
     <div class="modal-footer">
@@ -2260,14 +2261,14 @@ function renderDashboard() {
       <div class="modal-close" onclick="closeModal('work-order-modal')">✕</div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Unit</label><select><option value="">-- Select Unit --</option></select></div>
-      <div class="form-group"><label>Service Type</label><select><option>Oil Change</option><option>Brake Inspection</option><option>Tire Rotation</option><option>DOT Inspection</option><option>Clutch</option><option>Other</option></select></div>
+      <div class="form-group"><label>Unit <select><option value="">-- Select Unit --</option></select></label></div>
+      <div class="form-group"><label>Service Type <select><option>Oil Change</option><option>Brake Inspection</option><option>Tire Rotation</option><option>DOT Inspection</option><option>Clutch</option><option>Other</option></select></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Priority</label><select><option>Critical</option><option>Normal</option><option>Low</option></select></div>
-      <div class="form-group"><label>Assigned Shop</label><input type="text" placeholder="Shop name"></div>
+      <div class="form-group"><label>Priority <select><option>Critical</option><option>Normal</option><option>Low</option></select></label></div>
+      <div class="form-group"><label>Assigned Shop <input type="text" placeholder="Shop name"></label></div>
     </div>
-    <div class="form-group" style="margin-bottom:14px"><label>Description</label><textarea rows="3" placeholder="Describe the issue..."></textarea></div>
+    <div class="form-group" style="margin-bottom:14px"><div class="form-label">Description</div><textarea rows="3" placeholder="Describe the issue..."></textarea></label></div>
     <div class="modal-footer">
       <button class="topbar-btn btn-ghost" onclick="closeModal('work-order-modal')">Cancel</button>
       <button class="topbar-btn btn-primary" onclick="closeModal('work-order-modal');alert('Work order created!')">Create Work Order</button>
@@ -2282,14 +2283,14 @@ function renderDashboard() {
       <div class="modal-close" onclick="closeModal('create-invoice-modal')">✕</div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Customer</label><select><option value="">-- Select Customer --</option></select></div>
-      <div class="form-group"><label>Load(s)</label><input type="text" placeholder="LD-5517, LD-5516..."></div>
+      <div class="form-group"><label>Customer <select><option value="">-- Select Customer --</option></select></label></div>
+      <div class="form-group"><label>Load(s) <input type="text" placeholder="LD-5517, LD-5516..."></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Amount ($)</label><input type="number" placeholder="0.00"></div>
-      <div class="form-group"><label>Payment Terms</label><select><option>Net 15</option><option>Net 30</option><option>Net 45</option><option>Net 60</option></select></div>
+      <div class="form-group"><div class="form-label">Amount ($)</div><input type="number" placeholder="0.00"></div>
+      <div class="form-group"><div class="form-label">Payment Terms</div><select><option>Net 15</option><option>Net 30</option><option>Net 45</option><option>Net 60</option></select></label></div>
     </div>
-    <div class="form-group" style="margin-bottom:14px"><label>Notes</label><textarea rows="2" placeholder="Additional billing notes..."></textarea></div>
+    <div class="form-group" style="margin-bottom:14px"><label>Notes <textarea rows="2" placeholder="Additional billing notes..."></textarea></label></div>
     <div class="modal-footer">
       <button class="topbar-btn btn-ghost" onclick="closeModal('create-invoice-modal')">Cancel</button>
       <button class="topbar-btn btn-primary" onclick="closeModal('create-invoice-modal')">Create & Send</button>
@@ -2306,8 +2307,8 @@ function renderDashboard() {
     </div>
     <input type="hidden" id="et-id">
     <div class="form-row">
-      <div class="form-group"><label>Unit Number *</label><input type="text" id="et-unit" placeholder="T-101"></div>
-      <div class="form-group"><label>Status</label>
+      <div class="form-group"><label for="et-unit">Unit Number *</label><input type="text" id="et-unit" placeholder="T-101"></div>
+      <div class="form-group"><label for="et-make">Status</label>
         <select id="et-status">
           <option value="active">Active</option>
           <option value="idle">Idle</option>
@@ -2317,27 +2318,27 @@ function renderDashboard() {
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Make</label><input type="text" id="et-make" placeholder="Kenworth"></div>
-      <div class="form-group"><label>Model</label><input type="text" id="et-model" placeholder="T680"></div>
+      <div class="form-group"><label>Make <input type="text" id="et-make" placeholder="Kenworth"></label></div>
+      <div class="form-group"><label for="et-model">Model</label><input type="text" id="et-model" placeholder="T680"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Year</label><input type="number" id="et-year" placeholder="2022"></div>
-      <div class="form-group"><label>Type</label>
+      <div class="form-group"><label for="et-year">Year</label><input type="number" id="et-year" placeholder="2022"></div>
+      <div class="form-group"><label for="et-vin">Type</label>
         <select id="et-type">
           <option>Sleeper</option><option>Day Cab</option><option>Tandem</option><option>Other</option>
-        </select>
+        </select></label>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>VIN</label><input type="text" id="et-vin"></div>
-      <div class="form-group"><label>License Plate</label><input type="text" id="et-plate"></div>
+      <div class="form-group"><label>VIN <input type="text" id="et-vin"></label></div>
+      <div class="form-group"><label for="et-plate">License Plate</label><input type="text" id="et-plate"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Odometer</label><input type="number" id="et-odometer"></div>
-      <div class="form-group"><label>PM Due Date</label><input type="date" id="et-pm-due"></div>
+      <div class="form-group"><label for="et-odometer">Odometer</label><input type="number" id="et-odometer"></div>
+      <div class="form-group"><label for="et-pm-due">PM Due Date</label><input type="date" id="et-pm-due"></div>
     </div>
-    <div class="form-group" style="margin-bottom:14px"><label>Notes</label>
-      <textarea id="et-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea>
+    <div class="form-group" style="margin-bottom:14px"><label for="atr-number">Notes</label>
+      <textarea id="et-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea></label>
     </div>
     <div id="et-error" style="color:var(--red);font-size:12px;padding:4px 0;display:none"></div>
     <div class="modal-footer">
@@ -2356,8 +2357,8 @@ function renderDashboard() {
     </div>
     <input type="hidden" id="atr-id">
     <div class="form-row">
-      <div class="form-group"><label>Trailer Number *</label><input type="text" id="atr-number" placeholder="TR-201"></div>
-      <div class="form-group"><label>Type</label>
+      <div class="form-group"><label>Trailer Number * <input type="text" id="atr-number" placeholder="TR-201"></label></div>
+      <div class="form-group"><label for="atr-year">Type</label>
         <select id="atr-type">
           <option value="Dry Van">Dry Van</option>
           <option value="Reefer">Reefer</option>
@@ -2368,19 +2369,19 @@ function renderDashboard() {
           <option value="Drop Deck">Drop Deck</option>
           <option value="Conestoga">Conestoga</option>
           <option value="Other">Other</option>
-        </select>
+        </select></label>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Year</label><input type="number" id="atr-year" placeholder="2020"></div>
-      <div class="form-group"><label>Length (ft)</label><input type="number" id="atr-length" placeholder="53"></div>
+      <div class="form-group"><label>Year <input type="number" id="atr-year" placeholder="2020"></label></div>
+      <div class="form-group"><label for="atr-length">Length (ft)</label><input type="number" id="atr-length" placeholder="53"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>VIN</label><input type="text" id="atr-vin"></div>
-      <div class="form-group"><label>License Plate</label><input type="text" id="atr-plate"></div>
+      <div class="form-group"><label for="atr-vin">VIN</label><input type="text" id="atr-vin"></div>
+      <div class="form-group"><label for="atr-plate">License Plate</label><input type="text" id="atr-plate"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Status</label>
+      <div class="form-group"><label for="atr-yard">Status</label>
         <select id="atr-status">
           <option value="available">Available</option>
           <option value="assigned">Assigned to Driver</option>
@@ -2388,16 +2389,16 @@ function renderDashboard() {
           <option value="at_customer">At Customer</option>
           <option value="in_shop">In Shop</option>
           <option value="inactive">Inactive</option>
-        </select>
+        </select></label>
       </div>
-      <div class="form-group"><label>Home Yard / Terminal</label><input type="text" id="atr-yard" placeholder="Atlanta Terminal"></div>
+      <div class="form-group"><label>Home Yard / Terminal <input type="text" id="atr-yard" placeholder="Atlanta Terminal"></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Inspection Due</label><input type="date" id="atr-inspection"></div>
-      <div class="form-group"><label>Registration Expiry</label><input type="date" id="atr-reg-expiry"></div>
+      <div class="form-group"><label for="atr-inspection">Inspection Due</label><input type="date" id="atr-inspection"></div>
+      <div class="form-group"><label for="atr-reg-expiry">Registration Expiry</label><input type="date" id="atr-reg-expiry"></div>
     </div>
-    <div class="form-group" style="margin-bottom:14px"><label>Notes</label>
-      <textarea id="atr-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea>
+    <div class="form-group" style="margin-bottom:14px"><label for="edv-first">Notes</label>
+      <textarea id="atr-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea></label>
     </div>
     <div id="atr-error" style="color:var(--red);font-size:12px;padding:4px 0;display:none"></div>
     <div class="modal-footer">
@@ -2417,60 +2418,60 @@ function renderDashboard() {
     <input type="hidden" id="edv-id">
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin-bottom:8px">Personal Information</div>
     <div class="form-row">
-      <div class="form-group"><label>First Name</label><input type="text" id="edv-first" placeholder="John"></div>
-      <div class="form-group"><label>Last Name</label><input type="text" id="edv-last" placeholder="Smith"></div>
+      <div class="form-group"><label>First Name <input type="text" id="edv-first" placeholder="John"></label></div>
+      <div class="form-group"><label for="edv-last">Last Name</label><input type="text" id="edv-last" placeholder="Smith"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Phone</label><input type="tel" id="edv-phone"></div>
-      <div class="form-group"><label>Email</label><input type="email" id="edv-email"></div>
+      <div class="form-group"><label for="edv-phone">Phone</label><input type="tel" id="edv-phone"></div>
+      <div class="form-group"><label for="edv-email">Email</label><input type="email" id="edv-email"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Address</label><input type="text" id="edv-address"></div>
-      <div class="form-group"><label>City</label><input type="text" id="edv-city"></div>
+      <div class="form-group"><label for="edv-address">Address</label><input type="text" id="edv-address"></div>
+      <div class="form-group"><label for="edv-city">City</label><input type="text" id="edv-city"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>State</label><input type="text" id="edv-state" maxlength="2"></div>
-      <div class="form-group"><label>ZIP</label><input type="text" id="edv-zip" maxlength="10"></div>
+      <div class="form-group"><label for="edv-state">State</label><input type="text" id="edv-state" maxlength="2"></div>
+      <div class="form-group"><label for="edv-zip">ZIP</label><input type="text" id="edv-zip" maxlength="10"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Emergency Contact Name</label><input type="text" id="edv-emer-name"></div>
-      <div class="form-group"><label>Emergency Contact Phone</label><input type="tel" id="edv-emer-phone"></div>
+      <div class="form-group"><label for="edv-emer-name">Emergency Contact Name</label><input type="text" id="edv-emer-name"></div>
+      <div class="form-group"><label for="edv-emer-phone">Emergency Contact Phone</label><input type="tel" id="edv-emer-phone"></div>
     </div>
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">License &amp; Compliance</div>
     <div class="form-row">
-      <div class="form-group"><label>CDL License #</label><input type="text" id="edv-cdl"></div>
-      <div class="form-group"><label>CDL State</label><input type="text" id="edv-cdl-state" maxlength="2"></div>
+      <div class="form-group"><label for="edv-cdl">CDL License #</label><input type="text" id="edv-cdl"></div>
+      <div class="form-group"><label for="edv-cdl-state">CDL State</label><input type="text" id="edv-cdl-state" maxlength="2"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>CDL Expiry Date</label><input type="date" id="edv-cdl-expiry"></div>
-      <div class="form-group"><label>CDL Class</label>
-        <select id="edv-cdl-class"><option value="A">Class A</option><option value="B">Class B</option><option value="C">Class C</option></select>
+      <div class="form-group"><label for="edv-cdl-expiry">CDL Expiry Date</label><input type="date" id="edv-cdl-expiry"></div>
+      <div class="form-group"><label for="edv-endorsements">CDL Class</label>
+        <select id="edv-cdl-class"><option value="A">Class A</option><option value="B">Class B</option><option value="C">Class C</option></select></label>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Endorsements</label><input type="text" id="edv-endorsements" placeholder="H, N, T, X"></div>
-      <div class="form-group"><label>Medical Card Expiry</label><input type="date" id="edv-med-expiry"></div>
+      <div class="form-group"><label>Endorsements <input type="text" id="edv-endorsements" placeholder="H, N, T, X"></label></div>
+      <div class="form-group"><label for="edv-med-expiry">Medical Card Expiry</label><input type="date" id="edv-med-expiry"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Last Drug Test</label><input type="date" id="edv-drug-test"></div>
-      <div class="form-group"><label>MVR Check Date</label><input type="date" id="edv-mvr-date"></div>
+      <div class="form-group"><label for="edv-drug-test">Last Drug Test</label><input type="date" id="edv-drug-test"></div>
+      <div class="form-group"><label for="edv-mvr-date">MVR Check Date</label><input type="date" id="edv-mvr-date"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Date of Hire</label><input type="date" id="edv-hire-date"></div>
+      <div class="form-group"><label for="edv-hire-date">Date of Hire</label><input type="date" id="edv-hire-date"></div>
       <div class="form-group"></div>
     </div>
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Pay &amp; Assignment</div>
     <div class="form-row">
-      <div class="form-group"><label>Pay Type</label>
-        <select id="edv-pay-type"><option>Per Mile</option><option>% of Load</option><option>Hourly</option><option>Salary</option></select>
+      <div class="form-group"><label for="edv-pay-rate">Pay Type</label>
+        <select id="edv-pay-type"><option>Per Mile</option><option>% of Load</option><option>Hourly</option><option>Salary</option></select></label>
       </div>
-      <div class="form-group"><label>Pay Rate</label><input type="text" id="edv-pay-rate"></div>
+      <div class="form-group"><label>Pay Rate <input type="text" id="edv-pay-rate"></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Assigned Truck</label>
-        <select id="edv-truck"><option value="">-- Unassigned --</option></select>
+      <div class="form-group"><label for="edv-terminal">Assigned Truck</label>
+        <select id="edv-truck"><option value="">-- Unassigned --</option></select></label>
       </div>
-      <div class="form-group"><label>Status</label>
+      <div class="form-group"><div class="form-label">Status</div>
         <select id="edv-status">
           <option value="available">Available</option>
           <option value="on_load">On Load</option>
@@ -2480,11 +2481,11 @@ function renderDashboard() {
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Home Terminal</label><input type="text" id="edv-terminal"></div>
-      <div class="form-group"><label>Driver PIN (4 digits)</label><input type="text" id="edv-pin" maxlength="4" pattern="[0-9]{4}"></div>
+      <div class="form-group"><label>Home Terminal <input type="text" id="edv-terminal"></label></div>
+      <div class="form-group"><label for="edv-pin">Driver PIN (4 digits)</label><input type="text" id="edv-pin" maxlength="4" pattern="[0-9]{4}"></div>
     </div>
-    <div class="form-group" style="margin-bottom:10px"><label>Notes</label>
-      <textarea id="edv-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea>
+    <div class="form-group" style="margin-bottom:10px"><label for="ad-first">Notes</label>
+      <textarea id="edv-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea></label>
     </div>
     <div id="edv-error" style="color:var(--red);font-size:12px;padding:4px 0;display:none"></div>
     <div class="modal-footer">
@@ -2503,68 +2504,68 @@ function renderDashboard() {
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin-bottom:8px">Personal Information</div>
     <div class="form-row">
-      <div class="form-group"><label>First Name</label><input type="text" id="ad-first" placeholder="John"></div>
-      <div class="form-group"><label>Last Name</label><input type="text" id="ad-last" placeholder="Smith"></div>
+      <div class="form-group"><label>First Name <input type="text" id="ad-first" placeholder="John"></label></div>
+      <div class="form-group"><label for="ad-last">Last Name</label><input type="text" id="ad-last" placeholder="Smith"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Phone</label><input type="tel" id="ad-phone" placeholder="555-555-5555"></div>
-      <div class="form-group"><label>Email</label><input type="email" id="ad-email" placeholder="john@email.com"></div>
+      <div class="form-group"><label for="ad-phone">Phone</label><input type="tel" id="ad-phone" placeholder="555-555-5555"></div>
+      <div class="form-group"><label for="ad-email">Email</label><input type="email" id="ad-email" placeholder="john@email.com"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Address</label><input type="text" id="ad-address" placeholder="123 Main St"></div>
-      <div class="form-group"><label>City</label><input type="text" id="ad-city" placeholder="Atlanta"></div>
+      <div class="form-group"><label for="ad-address">Address</label><input type="text" id="ad-address" placeholder="123 Main St"></div>
+      <div class="form-group"><label for="ad-city">City</label><input type="text" id="ad-city" placeholder="Atlanta"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>State</label><input type="text" id="ad-state" maxlength="2" placeholder="GA"></div>
-      <div class="form-group"><label>ZIP</label><input type="text" id="ad-zip" maxlength="10" placeholder="30301"></div>
+      <div class="form-group"><label for="ad-state">State</label><input type="text" id="ad-state" maxlength="2" placeholder="GA"></div>
+      <div class="form-group"><label for="ad-zip">ZIP</label><input type="text" id="ad-zip" maxlength="10" placeholder="30301"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Emergency Contact Name</label><input type="text" id="ad-emer-name" placeholder="Jane Smith"></div>
-      <div class="form-group"><label>Emergency Contact Phone</label><input type="tel" id="ad-emer-phone" placeholder="555-555-5556"></div>
+      <div class="form-group"><label for="ad-emer-name">Emergency Contact Name</label><input type="text" id="ad-emer-name" placeholder="Jane Smith"></div>
+      <div class="form-group"><label for="ad-emer-phone">Emergency Contact Phone</label><input type="tel" id="ad-emer-phone" placeholder="555-555-5556"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">License & Compliance</div>
     <div class="form-row">
-      <div class="form-group"><label>CDL License # *</label><input type="text" id="ad-cdl" placeholder="CDL-XX-XXXXXXX"></div>
-      <div class="form-group"><label>CDL State</label><input type="text" id="ad-cdl-state" placeholder="GA" maxlength="2"></div>
+      <div class="form-group"><label for="ad-cdl">CDL License # *</label><input type="text" id="ad-cdl" placeholder="CDL-XX-XXXXXXX"></div>
+      <div class="form-group"><label for="ad-cdl-state">CDL State</label><input type="text" id="ad-cdl-state" placeholder="GA" maxlength="2"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>CDL Expiry Date</label><input type="date" id="ad-cdl-expiry"></div>
-      <div class="form-group"><label>CDL Class</label>
-        <select id="ad-cdl-class"><option value="A">Class A</option><option value="B">Class B</option><option value="C">Class C</option></select>
+      <div class="form-group"><label for="ad-cdl-expiry">CDL Expiry Date</label><input type="date" id="ad-cdl-expiry"></div>
+      <div class="form-group"><label for="ad-med-expiry">CDL Class</label>
+        <select id="ad-cdl-class"><option value="A">Class A</option><option value="B">Class B</option><option value="C">Class C</option></select></label>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Endorsements</label>
+      <div class="form-group"><div class="form-label">Endorsements</div>
         <input type="text" id="ad-endorsements" placeholder="e.g. H, N, T, X">
       </div>
-      <div class="form-group"><label>Medical Card Expiry</label><input type="date" id="ad-med-expiry"></div>
+      <div class="form-group"><label>Medical Card Expiry <input type="date" id="ad-med-expiry"></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Last Drug Test Date</label><input type="date" id="ad-drug-test"></div>
-      <div class="form-group"><label>MVR Check Date</label><input type="date" id="ad-mvr-date"></div>
+      <div class="form-group"><label for="ad-drug-test">Last Drug Test Date</label><input type="date" id="ad-drug-test"></div>
+      <div class="form-group"><label for="ad-mvr-date">MVR Check Date</label><input type="date" id="ad-mvr-date"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Pay & Assignment</div>
     <div class="form-row">
-      <div class="form-group"><label>Pay Type</label>
-        <select id="ad-pay-type"><option>Per Mile</option><option>% of Load</option><option>Hourly</option><option>Salary</option></select>
+      <div class="form-group"><label for="ad-pay-rate">Pay Type</label>
+        <select id="ad-pay-type"><option>Per Mile</option><option>% of Load</option><option>Hourly</option><option>Salary</option></select></label>
       </div>
-      <div class="form-group"><label>Pay Rate</label><input type="text" id="ad-pay-rate" placeholder="e.g. $0.52/mi or 28%"></div>
+      <div class="form-group"><label>Pay Rate <input type="text" id="ad-pay-rate" placeholder="e.g. $0.52/mi or 28%"></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Assigned Truck</label>
-        <select id="ad-truck"><option value="">— Unassigned —</option></select>
+      <div class="form-group"><label for="ad-terminal">Assigned Truck</label>
+        <select id="ad-truck"><option value="">— Unassigned —</option></select></label>
       </div>
-      <div class="form-group"><label>Home Terminal</label><input type="text" id="ad-terminal" placeholder="e.g. Atlanta, GA"></div>
+      <div class="form-group"><label>Home Terminal <input type="text" id="ad-terminal" placeholder="e.g. Atlanta, GA"></label></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Driver PIN (4 digits)</label><input type="text" id="ad-pin" placeholder="1234" maxlength="4" pattern="[0-9]{4}"></div>
-      <div class="form-group"><label>Date of Hire</label><input type="date" id="ad-hire-date"></div>
+      <div class="form-group"><label for="ad-pin">Driver PIN (4 digits)</label><input type="text" id="ad-pin" placeholder="1234" maxlength="4" pattern="[0-9]{4}"></div>
+      <div class="form-group"><label for="ad-hire-date">Date of Hire</label><input type="date" id="ad-hire-date"></div>
     </div>
 
-    <div class="form-group" style="margin-bottom:10px"><label>Notes</label>
-      <textarea id="ad-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical" placeholder="Additional notes..."></textarea>
+    <div class="form-group" style="margin-bottom:10px"><label for="cem-name">Notes</label>
+      <textarea id="ad-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical" placeholder="Additional notes..."></textarea></label>
     </div>
     <div id="ad-error" style="color:var(--red);font-size:12px;padding:4px 0;display:none"></div>
     <div class="modal-footer">
@@ -2585,11 +2586,11 @@ function renderDashboard() {
     <input type="hidden" id="cem-id">
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin-bottom:8px">Company Information</div>
     <div class="form-row">
-      <div class="form-group"><label>Company Name *</label><input type="text" id="cem-name" placeholder="Acme Corp"></div>
-      <div class="form-group"><label>DBA / Short Name</label><input type="text" id="cem-dba" placeholder="Optional"></div>
+      <div class="form-group"><label>Company Name * <input type="text" id="cem-name" placeholder="Acme Corp"></label></div>
+      <div class="form-group"><label for="cem-dba">DBA / Short Name</label><input type="text" id="cem-dba" placeholder="Optional"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Customer Type</label>
+      <div class="form-group"><label for="cem-addr1">Customer Type</label>
         <select id="cem-type">
           <option value="billto">Bill To</option>
           <option value="broker">Broker</option>
@@ -2597,9 +2598,9 @@ function renderDashboard() {
           <option value="receiver">Receiver</option>
           <option value="3pl">3PL</option>
           <option value="other">Other</option>
-        </select>
+        </select></label>
       </div>
-      <div class="form-group"><label>Roles</label>
+      <div class="form-group"><div class="form-label">Roles</div>
         <div style="display:flex;gap:14px;padding:8px 0;flex-wrap:wrap">
           <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:400;cursor:pointer"><input type="checkbox" id="cem-role-billto"> Bill To</label>
           <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:400;cursor:pointer"><input type="checkbox" id="cem-role-shipper"> Shipper</label>
@@ -2609,32 +2610,32 @@ function renderDashboard() {
     </div>
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:14px 0 8px">Address</div>
     <div class="form-row">
-      <div class="form-group"><label>Address</label><input type="text" id="cem-addr1"></div>
-      <div class="form-group"><label>City</label><input type="text" id="cem-city"></div>
+      <div class="form-group"><label>Address <input type="text" id="cem-addr1"></label></div>
+      <div class="form-group"><label for="cem-city">City</label><input type="text" id="cem-city"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>State</label><input type="text" id="cem-state" maxlength="2"></div>
-      <div class="form-group"><label>ZIP</label><input type="text" id="cem-zip" maxlength="10"></div>
+      <div class="form-group"><label for="cem-state">State</label><input type="text" id="cem-state" maxlength="2"></div>
+      <div class="form-group"><label for="cem-zip">ZIP</label><input type="text" id="cem-zip" maxlength="10"></div>
     </div>
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:14px 0 8px">Contact</div>
     <div class="form-row">
-      <div class="form-group"><label>Contact Name</label><input type="text" id="cem-contact"></div>
-      <div class="form-group"><label>Phone</label><input type="tel" id="cem-phone"></div>
+      <div class="form-group"><label for="cem-contact">Contact Name</label><input type="text" id="cem-contact"></div>
+      <div class="form-group"><label for="cem-phone">Phone</label><input type="tel" id="cem-phone"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Email</label><input type="email" id="cem-email"></div>
-      <div class="form-group"><label>Status</label>
-        <select id="cem-status"><option value="active">Active</option><option value="prospect">Prospect</option><option value="on_hold">On Hold</option><option value="inactive">Inactive</option></select>
+      <div class="form-group"><label for="cem-email">Email</label><input type="email" id="cem-email"></div>
+      <div class="form-group"><label for="cem-credit">Status</label>
+        <select id="cem-status"><option value="active">Active</option><option value="prospect">Prospect</option><option value="on_hold">On Hold</option><option value="inactive">Inactive</option></select></label>
       </div>
     </div>
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:14px 0 8px">Billing & Credit</div>
     <div class="form-row">
-      <div class="form-group"><label>Credit Limit ($)</label><input type="number" id="cem-credit"></div>
-      <div class="form-group"><label>Payment Terms</label>
-        <select id="cem-terms"><option>Net 15</option><option>Net 30</option><option>Net 45</option><option>Net 60</option><option>COD</option><option>Prepaid</option></select>
+      <div class="form-group"><label>Credit Limit ($) <input type="number" id="cem-credit"></label></div>
+      <div class="form-group"><label for="ac-name">Payment Terms</label>
+        <select id="cem-terms"><option>Net 15</option><option>Net 30</option><option>Net 45</option><option>Net 60</option><option>COD</option><option>Prepaid</option></select></label>
       </div>
     </div>
-    <div class="form-group" style="margin-top:10px"><label>Notes</label>
+    <div class="form-group" style="margin-top:10px"><div class="form-label">Notes</div>
       <textarea id="cem-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical"></textarea>
     </div>
     <div id="cem-error" style="color:var(--red);font-size:12px;padding:4px 0;display:none"></div>
@@ -2654,11 +2655,11 @@ function renderDashboard() {
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin-bottom:8px">Company Information</div>
     <div class="form-row">
-      <div class="form-group"><label>Company Name *</label><input type="text" id="ac-name" placeholder="Acme Corp"></div>
-      <div class="form-group"><label>DBA / Short Name</label><input type="text" id="ac-dba" placeholder="Optional short name"></div>
+      <div class="form-group"><label>Company Name * <input type="text" id="ac-name" placeholder="Acme Corp"></label></div>
+      <div class="form-group"><label for="ac-dba">DBA / Short Name</label><input type="text" id="ac-dba" placeholder="Optional short name"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Customer Type</label>
+      <div class="form-group"><label for="ac-addr1">Customer Type</label>
         <select id="ac-type">
           <option value="billto">Bill To</option>
           <option value="broker">Broker</option>
@@ -2666,9 +2667,9 @@ function renderDashboard() {
           <option value="receiver">Receiver</option>
           <option value="3pl">3PL</option>
           <option value="other">Other</option>
-        </select>
+        </select></label>
       </div>
-      <div class="form-group"><label>Roles (select all that apply)</label>
+      <div class="form-group"><div class="form-label">Roles (select all that apply)</div>
         <div style="display:flex;gap:14px;padding:8px 0;flex-wrap:wrap">
           <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:400;cursor:pointer">
             <input type="checkbox" id="ac-role-billto" value="billto"> Bill To
@@ -2684,60 +2685,60 @@ function renderDashboard() {
     </div>
     <div class="form-row">
       <div class="form-group" style="grid-column:1/-1"></div>
-      <div class="form-group"><label>Status</label>
+      <div class="form-group"><div class="form-label">Status</div>
         <select id="ac-status"><option value="active">Active</option><option value="prospect">Prospect</option><option value="inactive">Inactive</option></select>
       </div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Primary Address</div>
     <div class="form-row">
-      <div class="form-group"><label>Address Line 1</label><input type="text" id="ac-addr1" placeholder="123 Main St"></div>
-      <div class="form-group"><label>Address Line 2</label><input type="text" id="ac-addr2" placeholder="Suite 100"></div>
+      <div class="form-group"><label>Address Line 1 <input type="text" id="ac-addr1" placeholder="123 Main St"></label></div>
+      <div class="form-group"><label for="ac-addr2">Address Line 2</label><input type="text" id="ac-addr2" placeholder="Suite 100"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>City</label><input type="text" id="ac-city" placeholder="Atlanta"></div>
-      <div class="form-group"><label>State</label><input type="text" id="ac-state" maxlength="2" placeholder="GA"></div>
+      <div class="form-group"><label for="ac-city">City</label><input type="text" id="ac-city" placeholder="Atlanta"></div>
+      <div class="form-group"><label for="ac-state">State</label><input type="text" id="ac-state" maxlength="2" placeholder="GA"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>ZIP Code</label><input type="text" id="ac-zip" placeholder="30301" maxlength="10"></div>
-      <div class="form-group"><label>Country</label><input type="text" id="ac-country" placeholder="USA" value="USA"></div>
+      <div class="form-group"><label for="ac-zip">ZIP Code</label><input type="text" id="ac-zip" placeholder="30301" maxlength="10"></div>
+      <div class="form-group"><label for="ac-country">Country</label><input type="text" id="ac-country" placeholder="USA" value="USA"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Primary Contact</div>
     <div class="form-row">
-      <div class="form-group"><label>Contact Name</label><input type="text" id="ac-contact" placeholder="John Smith"></div>
-      <div class="form-group"><label>Title / Role</label><input type="text" id="ac-title" placeholder="Logistics Manager"></div>
+      <div class="form-group"><label for="ac-contact">Contact Name</label><input type="text" id="ac-contact" placeholder="John Smith"></div>
+      <div class="form-group"><label for="ac-title">Title / Role</label><input type="text" id="ac-title" placeholder="Logistics Manager"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Phone</label><input type="tel" id="ac-phone" placeholder="555-555-5555"></div>
-      <div class="form-group"><label>Contact Email</label><input type="email" id="ac-email" placeholder="john@acme.com"></div>
+      <div class="form-group"><label for="ac-phone">Phone</label><input type="tel" id="ac-phone" placeholder="555-555-5555"></div>
+      <div class="form-group"><label for="ac-email">Contact Email</label><input type="email" id="ac-email" placeholder="john@acme.com"></div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Billing Email</label><input type="email" id="ac-billing-email" placeholder="billing@acme.com"></div>
-      <div class="form-group"><label>Fax</label><input type="tel" id="ac-fax" placeholder="555-555-5557"></div>
+      <div class="form-group"><label for="ac-billing-email">Billing Email</label><input type="email" id="ac-billing-email" placeholder="billing@acme.com"></div>
+      <div class="form-group"><label for="ac-fax">Fax</label><input type="tel" id="ac-fax" placeholder="555-555-5557"></div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Billing & Credit</div>
     <div class="form-row">
-      <div class="form-group"><label>Credit Limit ($)</label><input type="number" id="ac-credit" placeholder="50000"></div>
-      <div class="form-group"><label>Payment Terms</label>
-        <select id="ac-terms"><option>Net 15</option><option selected>Net 30</option><option>Net 45</option><option>Net 60</option><option>COD</option><option>Prepaid</option><option>QuickPay</option></select>
+      <div class="form-group"><label for="ac-credit">Credit Limit ($)</label><input type="number" id="ac-credit" placeholder="50000"></div>
+      <div class="form-group"><label for="ac-factor">Payment Terms</label>
+        <select id="ac-terms"><option>Net 15</option><option selected>Net 30</option><option>Net 45</option><option>Net 60</option><option>COD</option><option>Prepaid</option><option>QuickPay</option></select></label>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group"><label>Factoring Company</label><input type="text" id="ac-factor" placeholder="OTR Capital, RTS, etc."></div>
-      <div class="form-group"><label>NOA on File</label>
-        <select id="ac-noa"><option value="">— N/A —</option><option value="yes">Yes</option><option value="no">No</option></select>
+      <div class="form-group"><label>Factoring Company <input type="text" id="ac-factor" placeholder="OTR Capital, RTS, etc."></label></div>
+      <div class="form-group"><div class="form-label">NOA on File</div>
+        <select id="ac-noa"><option value="">— N/A —</option><option value="yes">Yes</option><option value="no">No</option></select></label>
       </div>
     </div>
 
     <div style="font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text2);margin:16px 0 8px">Preferred Lanes & Notes</div>
     <div class="form-group" style="margin-bottom:10px">
-      <label>Preferred Lanes</label>
+      <div class="form-label">Preferred Lanes</div>
       <input type="text" id="ac-lanes" placeholder="e.g. Atlanta → Miami, Chicago → Detroit">
     </div>
     <div class="form-group" style="margin-bottom:14px">
-      <label>Notes</label>
+      <div class="form-label">Notes</div>
       <textarea id="ac-notes" rows="2" style="width:100%;padding:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:13px;resize:vertical" placeholder="Special requirements, contacts, load history notes..."></textarea>
     </div>
 
@@ -4703,9 +4704,14 @@ function showPage(id, el) {
   targetPage.classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   if (el) el.classList.add('active');
-  // Reset scroll to top after render
+  // Reset scroll - belt AND suspenders
   var mainEl = document.querySelector('.main');
-  if (mainEl) { mainEl.scrollTop = 0; setTimeout(function(){ mainEl.scrollTop = 0; }, 50); }
+  if (mainEl) {
+    mainEl.scrollTop = 0;
+    setTimeout(function(){ mainEl.scrollTop = 0; }, 0);
+    setTimeout(function(){ mainEl.scrollTop = 0; }, 100);
+    setTimeout(function(){ mainEl.scrollTop = 0; }, 300);
+  }
   const titleEl = document.querySelector('.topbar-title');
   if (titleEl && el) titleEl.textContent = el.textContent.trim().replace(/\d+$/, '').trim();
   if (id === 'dashboard') { setTimeout(renderDashboard, 50); }
@@ -13105,6 +13111,58 @@ function aiBotFmt(t){
   t=t.replace(/\n/g,'<br>');
   return t;
 }
+
+// ── LAYOUT DIAGNOSTIC (remove after fix) ──
+function showLayoutDiag() {
+  var existing = document.getElementById('layout-diag');
+  if (existing) { existing.remove(); return; }
+  var sidebar = document.querySelector('.sidebar');
+  var main    = document.querySelector('.main');
+  var page    = document.querySelector('.page.active');
+  var topbar  = page ? page.querySelector('.topbar') : null;
+  var info = {
+    'Sidebar height':     sidebar ? sidebar.getBoundingClientRect().height + 'px' : 'N/A',
+    'Sidebar bottom':     sidebar ? sidebar.getBoundingClientRect().bottom + 'px' : 'N/A',
+    'Main marginTop':     main ? getComputedStyle(main).marginTop : 'N/A',
+    'Main offsetTop':     main ? main.offsetTop + 'px' : 'N/A',
+    'Main scrollTop':     main ? main.scrollTop + 'px' : 'N/A',
+    'Main height':        main ? getComputedStyle(main).height : 'N/A',
+    'Body scrollTop':     document.body.scrollTop + 'px',
+    'Window scrollY':     window.scrollY + 'px',
+    'Active page':        page ? page.id : 'N/A',
+    'Topbar offsetTop':   topbar ? topbar.offsetTop + 'px' : 'N/A',
+    'Topbar rect.top':    topbar ? topbar.getBoundingClientRect().top + 'px' : 'N/A',
+  };
+  var rows = Object.entries(info).map(function(e) {
+    var ok = true;
+    if (e[0] === 'Topbar rect.top' && parseFloat(e[1]) > 200) ok = false;
+    if (e[0] === 'Main scrollTop'  && parseFloat(e[1]) > 0)   ok = false;
+    if (e[0] === 'Body scrollTop'  && parseFloat(e[1]) > 0)   ok = false;
+    return '<tr><td style="padding:3px 8px;color:#aaa">' + e[0] + '</td>' +
+           '<td style="padding:3px 8px;color:' + (ok?'#4df':'#f66') + ';font-weight:600">' + e[1] + '</td></tr>';
+  }).join('');
+  var el = document.createElement('div');
+  el.id = 'layout-diag';
+  el.style.cssText = 'position:fixed;bottom:10px;right:10px;z-index:99999;background:#111;border:1px solid #333;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;max-width:320px;box-shadow:0 4px 20px rgba(0,0,0,0.5)';
+  var hdr = document.createElement('div');
+  hdr.style.cssText = 'color:#fff;font-weight:700;margin-bottom:6px';
+  hdr.textContent = 'Layout Diagnostics';
+  var cls = document.createElement('span');
+  cls.style.cssText = 'float:right;cursor:pointer;color:#f66;margin-left:8px';
+  cls.textContent = 'X';
+  cls.onclick = function(){ var d=document.getElementById('layout-diag'); if(d) d.remove(); };
+  hdr.appendChild(cls);
+  var tbl = document.createElement('table');
+  tbl.innerHTML = rows;
+  var ftr = document.createElement('div');
+  ftr.style.cssText = 'margin-top:8px;color:#666;font-size:10px';
+  ftr.textContent = 'Click nav items then re-run';
+  el.appendChild(hdr); el.appendChild(tbl); el.appendChild(ftr);
+  document.body.appendChild(el);
+}
+// Auto-show on load
+document.addEventListener('DOMContentLoaded', function(){ setTimeout(showLayoutDiag, 1000); });
+
 </script>
 </body>
 </html>
