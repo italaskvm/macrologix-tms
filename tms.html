@@ -3643,7 +3643,7 @@ function nlOpenModal() {
     if (el) el.selectedIndex = 0;
   });
   nlSetHazmat(false);
-  nlOpenModal();
+  openModal('add-load-modal');
 }
 
 // Wire the + New Load buttons to use nlOpenModal
@@ -3657,7 +3657,7 @@ function copyLoad(loadId) {
   if (!ld) { showToast('Load not found'); return; }
 
   // Open and reset the new load modal
-  nlOpenModal();
+ openModal('add-load-modal');
 
   // Pre-fill fields after modal opens
   setTimeout(function() {
