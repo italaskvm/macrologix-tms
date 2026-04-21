@@ -1,3 +1,4 @@
+<!-- TMS VERSION: 2.4.1-D1 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -758,7 +759,7 @@ async function initFromDB() {
     return;
   }
 
-  console.log('MacroLogix TMS — connecting to Supabase...');
+  console.log('MacroLogix TMS v2.4.1-D1 — connecting to Cloudflare D1...');
   showDbBanner('⏳ Loading from database…', 'info');
 
   // Fetch all tables in parallel
@@ -3657,7 +3658,7 @@ function copyLoad(loadId) {
   if (!ld) { showToast('Load not found'); return; }
 
   // Open and reset the new load modal
- openModal('add-load-modal');
+  nlOpenModal();
 
   // Pre-fill fields after modal opens
   setTimeout(function() {
