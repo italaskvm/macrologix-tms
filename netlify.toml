@@ -1,0 +1,41 @@
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = true
+
+[[redirects]]
+  from = "https://www.macrologix.net/*"
+  to   = "https://macrologix.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tms"
+  to = "/tms.html"
+  status = 200
+
+[[redirects]]
+  from = "/dispatch"
+  to = "/tms.html"
+  status = 200
+
+[[redirects]]
+  from = "/driver"
+  to = "/driver.html"
+  status = 200
+
+[[redirects]]
+  from = "/customer"
+  to = "/customer-portal.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
